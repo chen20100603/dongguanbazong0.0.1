@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东莞市第八高级中学 - 未来教育新标杆</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f3f8 100%);
+            overflow-x: hidden;
+        }
+
+        /* 淡入动画 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 发光渐变动画 */
+        @keyframes glowGradient {
+            0% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.2), 0 8px 32px rgba(59, 130, 246, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(59, 130, 246, 0.4), 0 12px 48px rgba(59, 130, 246, 0.2);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.2), 0 8px 32px rgba(59, 130, 246, 0.1);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .fade-in-delay-1 {
+            animation: fadeIn 0.8s ease-out 0.2s backwards;
+        }
+
+        .fade-in-delay-2 {
+            animation: fadeIn 0.8s ease-out 0.4s backwards;
+        }
+
+        .fade-in-delay-3 {
+            animation: fadeIn 0.8s ease-out 0.6s backwards;
+        }
+
+        /* 卡片悬停效果 */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-12px);
+            animation: glowGradient 2s ease-in-out forwards;
+        }
+
+        /* 渐变背景 */
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(224, 242, 254, 0.6) 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-button {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            transition: all 0.3s ease;
+        }
+
+        .gradient-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        /* 光影效果 */
+        .light-shadow {
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .light-shadow-lg {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        /* 导航栏固定效果 */
+        .navbar {
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar.scrolled {
+            background: rgba(248, 249, 250, 0.95);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* 星级 */
+        .star {
+            display: inline-block;
+            color: #fbbf24;
+        }
+
+        /* 评价卡片 */
+        .review-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar fixed w-full top-0 z-50 bg-white/0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="fade-in">
+                    <a href="#" class="text-2xl font-bold gradient-text">东莞八中</a>
+                </div>
+
+                <!-- 导航菜单 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features" class="fade-in-delay-1 text-gray-600 hover:text-blue-600 transition duration-300">特色</a>
+                    <a href="#reviews" class="fade-in-delay-2 text-gray-600 hover:text-blue-600 transition duration-300">评价</a>
+                    <a href="#recruitment" class="fade-in-delay-3 text-gray-600 hover:text-blue-600 transition duration-300">招生</a>
+                </div>
+
+                <!-- CTA按钮 -->
+                <button class="fade-in-delay-3 gradient-button text-white px-6 py-2 rounded-full font-medium text-sm hover:shadow-lg">
+                    立即咨询
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏 Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- 背景渐变装饰 -->
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute top-20 left-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto text-center">
+            <!-- 标题 -->
+            <h1 class="fade-in text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-6">
+                <span class="gradient-text">山水教育·诗意成长</span>
+            </h1>
+
+            <!-- 副标题 -->
+            <p class="fade-in-delay-1 text-xl sm:text-2xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+                对每一位学生的终身发展负责，培养具有国际竞争力的创新人才
+            </p>
+
+            <!-- 按钮组 -->
+            <div class="fade-in-delay-2 flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="gradient-button text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all">
+                    了解更多
+                </button>
+                <button class="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold text-lg hover:border-blue-500 hover:text-blue-500 transition-all">
+                    参加开放日
+                </button>
+            </div>
+
+            <!-- 特性标签 -->
+            <div class="fade-in-delay-3 flex flex-wrap gap-3 justify-center mt-12">
+                <span class="gradient-bg px-4 py-2 rounded-full text-sm font-medium text-gray-700 light-shadow">🎖️ 全国示范校</span>
+                <span class="gradient-bg px-4 py-2 rounded-full text-sm font-medium text-gray-700 light-shadow">🚀 科创特色</span>
+                <span class="gradient-bg px-4 py-2 rounded-full text-sm font-medium text-gray-700 light-shadow">⭐ 升学率98%</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色优势区域 -->
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
+        <div class="max-w-7xl mx-auto">
+            <!-- 章节标题 -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+                    四大<span class="gradient-text">办学特色</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    专业的教学体系，为学生打开成功的大门
+                </p>
+            </div>
+
+            <!-- 卡片网格 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 卡片 1 - 航空航天 -->
+                <div class="card-hover fade-in group rounded-2xl p-8 light-shadow-lg gradient-bg">
+                    <div class="mb-6 w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform">
+                        🚀
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">航空航天·科创</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        158项国家级奖项，全国航空航天特色学校
+                    </p>
+                </div>
+
+                <!-- 卡片 2 - 国防教育 -->
+                <div class="card-hover fade-in-delay-1 group rounded-2xl p-8 light-shadow-lg gradient-bg">
+                    <div class="mb-6 w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform">
+                        🎖️
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">国防教育</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        全国国防教育示范校，超200名学子升入军警院校
+                    </p>
+                </div>
+
+                <!-- 卡片 3 - 艺术美育 -->
+                <div class="card-hover fade-in-delay-2 group rounded-2xl p-8 light-shadow-lg gradient-bg">
+                    <div class="mb-6 w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-2xl flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform">
+                        🎨
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">艺术美育</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        音乐美术本科率100%，压花艺术东莞名片
+                    </p>
+                </div>
+
+                <!-- 卡片 4 - 校园足球 -->
+                <div class="card-hover fade-in-delay-3 group rounded-2xl p-8 light-shadow-lg gradient-bg">
+                    <div class="mb-6 w-16 h-16 bg-gradient-to-br from-green-400 to-blue-600 rounded-2xl flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform">
+                        ⚽
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">校园足球</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        全国青少年校园足球特色校，市级冠军
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 校园风光区域 -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- 章节标题 -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+                    校园<span class="gradient-text">风光</span>
+                </h2>
+                <p class="text-xl text-gray-600">
+                    背倚4A级观音山，山水为伴，书香为韵
+                </p>
+            </div>
+
+            <!-- 图片网格 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover fade-in rounded-2xl overflow-hidden light-shadow-lg h-80">
+                    <img src="https://images.unsplash.com/photo-1592280191338-e5e99efcc81b?w=500&h=400&fit=crop" alt="校园" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="card-hover fade-in-delay-1 rounded-2xl overflow-hidden light-shadow-lg h-80">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=500&h=400&fit=crop" alt="运动场" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="card-hover fade-in-delay-2 rounded-2xl overflow-hidden light-shadow-lg h-80">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e83e8a534fae?w=500&h=400&fit=crop" alt="图书馆" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="card-hover fade-in-delay-3 rounded-2xl overflow-hidden light-shadow-lg h-80">
+                    <img src="https://images.unsplash.com/photo-1427504494785-cdea856416c7?w=500&h=400&fit=crop" alt="宿舍" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="card-hover fade-in rounded-2xl overflow-hidden light-shadow-lg h-80">
+                    <img src="https://images.unsplash.com/photo-1524634126442-357e0eac6d14?w=500&h=400&fit=crop" alt="食堂" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="card-hover fade-in-delay-1 rounded-2xl overflow-hidden light-shadow-lg h-80">
+                    <img src="https://images.unsplash.com/photo-1537995519956-a3fedb8c3b51?w=500&h=400&fit=crop" alt="绿化" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 师资力量区域 -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
+        <div class="max-w-7xl mx-auto">
+            <!-- 章节标题 -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+                    名师<span class="gradient-text">云集</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    250余位专任教师，九成公办在编，专业、耐心、温度
+                </p>
+            </div>
+
+            <!-- 统计数据 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="fade-in text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2">250+</div>
+                    <p class="text-gray-600">专任教师</p>
+                </div>
+                <div class="fade-in-delay-1 text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2">90%</div>
+                    <p class="text-gray-600">公办在编</p>
+                </div>
+                <div class="fade-in-delay-2 text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2">100%</div>
+                    <p class="text-gray-600">硕士学位</p>
+                </div>
+                <div class="fade-in-delay-3 text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2">∞</div>
+                    <p class="text-gray-600">教学热情</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学生评价区域 -->
+    <section id="reviews" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- 章节标题 -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+                    学生<span class="gradient-text">评价</span>
+                </h2>
+                <p class="text-xl text-gray-600">
+                    来自校友的真实反馈
+                </p>
+            </div>
+
+            <!-- 评价卡片网格 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 评价 1 -->
+                <div class="review-card fade-in rounded-2xl p-8 light-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            L
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">李同学</h4>
+                            <p class="text-sm text-gray-500">2024届毕业生</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="text-gray-700">
+                        "东莞八中不仅提升了我的学业成绩，更重要的是让我找到了自己的兴趣方向。感谢老师的耐心指导！"
+                    </p>
+                </div>
+
+                <!-- 评价 2 -->
+                <div class="review-card fade-in-delay-1 rounded-2xl p-8 light-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            W
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">王同学</h4>
+                            <p class="text-sm text-gray-500">航空航天班</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="text-gray-700">
+                        "科创班的教学设备和师资力量超一流，参加全国航模竞赛获奖是我最骄傲的经历。"
+                    </p>
+                </div>
+
+                <!-- 评价 3 -->
+                <div class="review-card fade-in-delay-2 rounded-2xl p-8 light-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            Z
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">张同学</h4>
+                            <p class="text-sm text-gray-500">艺术班</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="text-gray-700">
+                        "学校的艺术教育真的很专业，老师们都是高校毕业的专家，我最终考上了理想的艺术院校。"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 招生信息 CTA -->
+    <section id="recruitment" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-50 to-cyan-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 fade-in">
+                加入东莞八中
+            </h2>
+            <p class="text-xl text-gray-600 mb-8 fade-in-delay-1">
+                开启您的成长之旅，成就更好的自己
+            </p>
+            
+            <!-- 招生数据 -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
+                <div class="fade-in-delay-2">
+                    <div class="text-3xl font-bold gradient-text mb-2">600+</div>
+                    <p class="text-gray-600">年招生计划</p>
+                </div>
+                <div class="fade-in-delay-2">
+                    <div class="text-3xl font-bold gradient-text mb-2">98%</div>
+                    <p class="text-gray-600">升学率</p>
+                </div>
+                <div class="fade-in-delay-2">
+                    <div class="text-3xl font-bold gradient-text mb-2">95%+</div>
+                    <p class="text-gray-600">本科率</p>
+                </div>
+            </div>
+
+            <button class="fade-in-delay-3 gradient-button text-white px-10 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all">
+                立即报名 →
+            </button>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-gray-400 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-white font-bold mb-4">学校</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">学校概况</a></li>
+                        <li><a href="#" class="hover:text-white transition">校园环境</a></li>
+                        <li><a href="#" class="hover:text-white transition">师资力量</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">特色</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">科创特色</a></li>
+                        <li><a href="#" class="hover:text-white transition">国防教育</a></li>
+                        <li><a href="#" class="hover:text-white transition">艺术美育</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">招生</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">招生计划</a></li>
+                        <li><a href="#" class="hover:text-white transition">录取政策</a></li>
+                        <li><a href="#" class="hover:text-white transition">常见问题</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">联系</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">电话：XXXXXXX2421</a></li>
+                        <li><a href="#" class="hover:text-white transition">邮箱：chen@XXX</a></li>
+                        <li><a href="#" class="hover:text-white transition">地址：樟木头镇官仓社区</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 分割线 -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm mb-4 md:mb-0">
+                    © 2026 东莞市第八高级中学 版权所有
+                </p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="hover:text-white transition">隐私政策</a>
+                    <a href="#" class="hover:text-white transition">服务条款</a>
+                    <a href="#" class="hover:text-white transition">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 交互脚本 -->
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 平滑滚动导航链接
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // 页面加载完成
+        window.addEventListener('load', function() {
+            console.log('东莞市第八高级中学网站加载完成！');
+        });
+    </script>
+</body>
+</html>
